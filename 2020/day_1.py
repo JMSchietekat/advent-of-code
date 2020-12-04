@@ -10,7 +10,7 @@ def fileToArr(filePath):
 
 	return intArr
 
-def findProductOfTwoValuesThatSumTo2020(inputArr = []):
+def productOfTwoValuesThatSumTo2020(inputArr = []):
 	for i, a in enumerate(inputArr):
 		for j, b in enumerate(inputArr):
 			if i == j: continue
@@ -20,9 +20,9 @@ def findProductOfTwoValuesThatSumTo2020(inputArr = []):
 
 	return None
 
-print("Answer to part 1: ", findProductOfTwoValuesThatSumTo2020(fileToArr(inputFilePath)))
+print("Answer to part 1: ", productOfTwoValuesThatSumTo2020(fileToArr(inputFilePath)))
 
-def findProductOfThreeValuesThatSumTo2020(inputArr = []):
+def productOfThreeValuesThatSumTo2020(inputArr = []):
 	for i, a in enumerate(inputArr):
 		for j, b in enumerate(inputArr):
 			for k, c in enumerate(inputArr):
@@ -33,4 +33,4 @@ def findProductOfThreeValuesThatSumTo2020(inputArr = []):
 
 	return None
 
-print("Answer to part 2: ", findProductOfThreeValuesThatSumTo2020(fileToArr(inputFilePath)))
+print("Answer to part 2: ", productOfThreeValuesThatSumTo2020(fileToArr(inputFilePath)))
