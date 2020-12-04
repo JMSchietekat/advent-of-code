@@ -9,16 +9,21 @@ let linesFromFile filename : seq<int> =
 
 let multiply a b = a * b
 
-let printProductOfTwoValuesThatSumTo2020 (input: seq<int>) : Unit =
+let productOfTwoValuesThatSumTo2020 (input: seq<int>) =
+    seq { 
     for (i_a,v_a) in (Seq.indexed input) do
         for (i_b,v_b) in (Seq.indexed input) do
             if i_a < i_b then
                 if v_a + v_b = 2020 then 
                     printf "[%i]=%i + [%i]=%i = 2020, " i_a v_a i_b v_b
                     printfn "%i x %i = %i" v_a v_b (v_a * v_b)
+                    yield v_a * v_b
+    }
+    |> Seq.exactlyOne
             
 
-let printProductOfThreeValuesThatSumTo2020 (input: seq<int>) : Unit = 
+let productOfThreeValuesThatSumTo2020 (input: seq<int>)  = 
+    seq {
     for (i_a,v_a) in (Seq.indexed input) do
         for (i_b,v_b) in (Seq.indexed input) do
             for (i_c,v_c) in (Seq.indexed input) do
@@ -26,6 +31,9 @@ let printProductOfThreeValuesThatSumTo2020 (input: seq<int>) : Unit =
                     if v_a + v_b + v_c = 2020 then 
                         printf "[%i]=%i + [%i]=%i + [%i]=%i = 2020, " i_a v_a i_b v_b i_c v_c
                         printfn "%i x %i x %i = %i" v_a v_b v_c (v_a * v_b * v_c)
+                        yield v_a * v_b * v_c
+    } 
+    |> Seq.exactlyOne
                                 
 
 let printSeq seq = 
@@ -33,5 +41,5 @@ let printSeq seq =
     printfn ""
 
 
-linesFromFile inputFilename |> productOfTwoValuesThatSumTo2020
-linesFromFile inputFilename |> productOfThreeValuesThatSumTo2020
+linesFromFile inputFilename |> productOfTwoValuesThatSumTo2020 |> printfn "%i"
+linesFromFile inputFilename |> productOfThreeValuesThatSumTo2020 |> printfn "%i"
