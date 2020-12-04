@@ -1,2 +1,7 @@
 .ionide/*
 .vs/*
+
+.fake
+.ionide
+
+out/
