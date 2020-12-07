@@ -1,5 +1,3 @@
-import re
-
 inputFilePath = "C:/git-jmschietekat/advent-of-code/2020/day_3_input.txt"
 
 
