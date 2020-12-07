@@ -26,7 +26,7 @@ def strToPolicy(line):
         }
 
 
-def isValidPassword(minCount, maxCount, searchChar, inputStr):
+def isValidPasswordPart1(minCount, maxCount, searchChar, inputStr):
 
     charCount = 0
 
@@ -42,13 +42,32 @@ def isValidPassword(minCount, maxCount, searchChar, inputStr):
         return True
 
 
+def isValidPasswordPart2(minCount, maxCount, searchChar, inputStr):
+
+    if inputStr[minCount-1] == searchChar and inputStr[maxCount-1] != searchChar:
+        return True
+
+    if inputStr[minCount-1] != searchChar and inputStr[maxCount-1] == searchChar:
+        return True
+
+    return False
+
+
 if __name__ == "__main__":
     lines = fileToArr(inputFilePath)
 
     countOfValidPasswords = 0
 
     for line in lines:
-        if isValidPassword(**strToPolicy(line)) == True:
+        if isValidPasswordPart1(**strToPolicy(line)) == True:
             countOfValidPasswords += 1
 
-    print(countOfValidPasswords)
+    print('Part 1 has {} valid passwords'.format(countOfValidPasswords))
+
+    countOfValidPasswords = 0
+
+    for line in lines:
+        if isValidPasswordPart2(**strToPolicy(line)) == True:
+            countOfValidPasswords += 1
+
+    print('Part 2 has {} valid passwords'.format(countOfValidPasswords))
