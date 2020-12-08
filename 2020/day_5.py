@@ -34,15 +34,35 @@ def traverse(seq):
 
     return row_arr[0], column_arr[0], row_arr[0] * 8 + column_arr[0]
 
+def highestSeatId(boardingPasses):
+    highestSeatId = 0
+
+    for boardingPass in boardingPasses:
+        seatId = traverse(boardingPass)[2]
+        if seatId > highestSeatId:
+            highestSeatId = seatId
+
+    return highestSeatId
+
+def missingBoardingPass(boardingPasses):
+    seatIdArr = []
+
+    for boardingPass in boardingPasses:
+        seatIdArr.append(traverse(boardingPass)[2])
+
+    seatIdArr.sort()
+
+    for i, seatId in enumerate(seatIdArr):
+        if i > 0:
+            if seatIdArr[i] - seatIdArr[i-1] > 1:
+                return seatId -1
+
 
 if __name__ == "__main__":
-    arr = fileToArr(inputFilePath)
+    boardingPasses = fileToArr(inputFilePath)
 
-    highest_seat_id = 0
+    print("Part 1: The highest seat ID on a boarding pass is {}.".format(highestSeatId(boardingPasses)))
 
-    for boardingPass in arr:
-        seat_id = traverse(boardingPass)[2]
-        if seat_id > highest_seat_id:
-            highest_seat_id = seat_id
+    print("Part 2: The missing seat ID is {}.".format(missingBoardingPass(boardingPasses)))
 
-    print("Part 1: The highest seat ID on a boarding pass is {}.".format(highest_seat_id))
+    
