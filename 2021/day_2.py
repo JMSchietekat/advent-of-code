@@ -1,5 +1,8 @@
-sample_input_file_path = "C:/git-jmschietekat/advent-of-code/2021/day_2_input_sample.txt"
-input_file_path = "C:/git-jmschietekat/advent-of-code/2021/day_2_input.txt"
+import os
+
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) 
+SAMPLE_INPUT_PATH = ROOT_DIR + '\day_2_input_sample.txt'
+INPUT_PATH = ROOT_DIR + "\day_2_input.txt"
 
 def calculate(arr):
     coord = [0, 0]
@@ -30,13 +33,13 @@ def calculate2(arr):
 
 
 if __name__ == "__main__":
-    arr = [line.replace("\n","").split(" ") for line in open(sample_input_file_path, "r")]
+    arr = [line.replace("\n","").split(" ") for line in open(SAMPLE_INPUT_PATH, "r")]
 
     print("Sample data")
     print("Part 1 expected answer: {}, calculated answer: {}".format(150, calculate(arr)))
     print("Part 2 expected answer: {}, calculated answer: {}".format(900, calculate2(arr)))
 
-    arr = [line.replace("\n","").split(" ") for line in open(input_file_path, "r")]
+    arr = [line.replace("\n","").split(" ") for line in open(INPUT_PATH, "r")]
 
     print("Challange data")
     print("Part 1 expected answer: {}, calculated answer: {}".format(2272262, calculate(arr)))

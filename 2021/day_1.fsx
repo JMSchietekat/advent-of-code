@@ -20,7 +20,7 @@ let part2 fileName =
     |> Seq.map int
     |> Seq.windowed 3
     |> Seq.pairwise
-    |> Seq.sumBy (fun (a, b) -> if (a |> Array.sum ) < (b |>Array.sum ) then 1 else 0)
+    |> Seq.sumBy (fun (a, b) -> if (a |> Array.sum ) < (b |> Array.sum ) then 1 else 0)
     |> printfn "Part 2 answer: %i"
 
 part2 sampleInput

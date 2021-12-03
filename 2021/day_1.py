@@ -1,51 +1,50 @@
-sample_input_file_path = "C:/git-jmschietekat/advent-of-code/2021/day_1_input_sample.txt"
-input_file_path = "C:/git-jmschietekat/advent-of-code/2021/day_1_input.txt"
+import os
 
-def count_positive_gradients(arr, window_size = 1):
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) 
+SAMPLE_INPUT_PATH = ROOT_DIR + '\day_1_input_sample.txt'
+INPUT_PATH = ROOT_DIR + "\day_1_input.txt"
+
+def count_pos_grad_windowed_3(arr):
     cnt = 0
-    prev_total = 0
+    prev_sum = 0
     total = 0
 
-    ints()
-    
-    zip()
-    for i, _ in enumerate(arr):
-        if i > 0:
-            total = window_sum(arr, window_size, i)
-        
-        if i > window_size:
-            delta = total - prev_total
-            if delta > 0:
-                cnt += 1
+    for i, depth in enumerate(arr):
+        if i > 1:
+            total = depth + arr[i-1] + arr[i-2]
+            if prev_sum == 0:
+                prev_sum = total
+                continue
+            else :
+                delta = total - prev_sum
+                if delta > 0:
+                    cnt += 1
 
-        prev_total = total
+        prev_sum = total
 
     return cnt
 
-def window_sum(arr, window_size, start_index):
-    assert window_size > 0, "Window size must be at least 1"
-    assert window_size <= len(arr), "The maximium window size must be smaller or equal to the array lenght."
+def count_positive_gradients(arr):
+    cnt = 0
 
-    if window_size > 1:
-        return arr[start_index - window_size - 1] + window_sum(arr, window_size - 2, start_index)
-    if window_size == 1:
-        return arr[start_index]
-    else:
-        return 0
+    for i, depth in enumerate(arr):
+        if i > 0:
+            delta = depth - arr[i-1]
+            if delta > 0:
+                cnt += 1
+
+    return cnt
+
 
 if __name__ == "__main__":
-    arr = [int(line.replace('\n', '')) for line in open(sample_input_file_path, "r")]
+    arr = [int(line.replace('\n', '')) for line in open(SAMPLE_INPUT_PATH, "r")]
 
     print("Sample data")
     print("Part 1 expected answer: {}, calculated answer: {}".format(7, count_positive_gradients(arr)))
-    print("Part 2 expected answer: {}, calculated answer: {}".format(5, count_positive_gradients(arr, 3)))
+    print("Part 2 expected answer: {}, calculated answer: {}".format(5, count_pos_grad_windowed_3(arr)))
 
-    arr = [int(line.replace('\n', '')) for line in open(input_file_path, "r")]
+    arr = [int(line.replace('\n', '')) for line in open(INPUT_PATH, "r")]
 
     print("Challange data")
     print("Part 1 expected answer: {}, calculated answer: {}".format(1709, count_positive_gradients(arr)))
-    print("Part 2 expected answer: {}, calculated answer: {}".format(1761, count_positive_gradients(arr, 3)))
-
-    print(window_sum([1, 2, 3, 4], 1, 3))
-    print(window_sum([1, 2, 3, 4], 1, 3))
-    print(window_sum([1, 2, 3, 4], 2, 3))
+    print("Part 2 expected answer: {}, calculated answer: {}".format(1761, count_pos_grad_windowed_3(arr)))
