@@ -24,22 +24,22 @@ def score_plot(plot):
 
     return score
 
-def create_canvas(lines):
+def init_plot(lines):
     x1 = 0
     y1 = 0
     for line in lines:
-        x_max = max(line[0][0], line[1][0])
+        x_max = max(line[0][0], line[1][0]) + 1
         if x1 < x_max:
             x1 = x_max
 
-        y_max = max(line[0][1], line[1][1])
+        y_max = max(line[0][1], line[1][1]) + 1 
         if y1 < y_max:
             y1 = y_max
 
-    return [ [0]*(x1+1) for _ in range(y1+1) ]
+    return [ [0]*(x1) for _ in range(y1) ]
 
 def plot_line(lines):
-    plot = create_canvas(lines)       
+    plot = init_plot(lines)       
 
     for line in lines:
         points = []
@@ -56,10 +56,10 @@ def plot_line(lines):
         else:
             m = (line[1][1] - line[0][1]) / (line[1][0] - line[0][0])
             c = line[0][1] - m * line[0][0]
-            points = [[int(m*x + c),x] for x in range(min(line[0][0], line[1][0]), max(line[0][0], line[1][0])+1)]
+            points = [ [int(m*x + c),x] for x in range(min(line[0][0], line[1][0]), max(line[0][0], line[1][0])+1)]
         
         for point in points:
-                plot[point[0]][point[1]] += 1
+            plot[point[0]][point[1]] += 1
  
     return plot
             
