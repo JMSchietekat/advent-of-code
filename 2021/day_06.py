@@ -2,8 +2,8 @@ import os
 from collections import defaultdict, Counter
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) 
-SAMPLE_INPUT_PATH = ROOT_DIR + '\day_6_input_sample.txt'
-INPUT_PATH = ROOT_DIR + "\day_6_input.txt"
+SAMPLE_INPUT_PATH = ROOT_DIR + '\day_06_input_sample.txt'
+INPUT_PATH = ROOT_DIR + "\day_06_input.txt"
 
 def calc(initial_state, days):
     I = initial_state

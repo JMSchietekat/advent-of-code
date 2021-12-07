@@ -1,8 +1,8 @@
 import os
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) 
-SAMPLE_INPUT_PATH = ROOT_DIR + '\day_5_input_sample.txt'
-INPUT_PATH = ROOT_DIR + "\day_5_input.txt"
+SAMPLE_INPUT_PATH = ROOT_DIR + '\day_05_input_sample.txt'
+INPUT_PATH = ROOT_DIR + "\day_05_input.txt"
 
 
 def part1(lines):

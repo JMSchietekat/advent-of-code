@@ -1,7 +1,7 @@
 open System.IO
 
-let sampleInput = "2021/day_1_input_sample.txt";
-let challangeInput = "2021/day_1_input.txt";
+let sampleInput = "2021/day_01_input_sample.txt";
+let challangeInput = "2021/day_01_input.txt";
 
 let part1 fileName = 
     fileName

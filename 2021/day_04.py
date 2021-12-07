@@ -1,8 +1,8 @@
 import os
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) 
-SAMPLE_INPUT_PATH = ROOT_DIR + '\day_4_input_sample.txt'
-INPUT_PATH = ROOT_DIR + "\day_4_input.txt"
+SAMPLE_INPUT_PATH = ROOT_DIR + '\day_04_input_sample.txt'
+INPUT_PATH = ROOT_DIR + "\day_04_input.txt"
 
 def func2(number, boards):
     total_boards = len(boards)

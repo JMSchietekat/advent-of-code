@@ -1,8 +1,8 @@
 import os
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) 
-SAMPLE_INPUT_PATH = ROOT_DIR + '\day_3_input_sample.txt'
-INPUT_PATH = ROOT_DIR + "\day_3_input.txt"
+SAMPLE_INPUT_PATH = ROOT_DIR + '\day_03_input_sample.txt'
+INPUT_PATH = ROOT_DIR + "\day_03_input.txt"
 
 def life_support_rating(arr):
     o2_generator_rating = int(arr2str(rec_search(arr, 0, 1)),2)

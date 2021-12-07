@@ -1,8 +1,8 @@
 import os
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) 
-SAMPLE_INPUT_PATH = ROOT_DIR + '\day_2_input_sample.txt'
-INPUT_PATH = ROOT_DIR + "\day_2_input.txt"
+SAMPLE_INPUT_PATH = ROOT_DIR + '\day_02_input_sample.txt'
+INPUT_PATH = ROOT_DIR + "\day_02_input.txt"
 
 def calculate(arr):
     coord = [0, 0]

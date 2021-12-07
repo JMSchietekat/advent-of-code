@@ -1,8 +1,8 @@
 import os
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) 
-SAMPLE_INPUT_PATH = ROOT_DIR + '\day_1_input_sample.txt'
-INPUT_PATH = ROOT_DIR + "\day_1_input.txt"
+SAMPLE_INPUT_PATH = ROOT_DIR + '\day_01_input_sample.txt'
+INPUT_PATH = ROOT_DIR + "\day_01_input.txt"
 
 def count_pos_grad_windowed_3(arr):
     cnt = 0
