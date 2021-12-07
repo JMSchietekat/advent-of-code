@@ -12,11 +12,11 @@ def calc1(arr):
     return cost1(S, median)
 
 def cost1(arr, pos):
-    total_fual = 0
+    cost = 0
     for a in arr:
-        total_fual += abs(a - pos)
+        cost += abs(a - pos)
 
-    return total_fual
+    return cost
 
 def calc2(arr):
     S = arr
@@ -24,20 +24,12 @@ def calc2(arr):
     for r in range(S[0], S[-1]):
         score = 0
         for v in S:
-            score += cost3(abs(v-r))
+            score += cost2(abs(v-r))
         if score < max_score:
             max_score = score
         else: return int(max_score)
     
 def cost2(moves):
-    if moves == 0:
-        return 0
-    if moves == 1:
-        return 1
-    
-    return moves + cost2(moves-1)
-
-def cost3(moves):
     return moves*(moves+1)/2
 
 if __name__ == "__main__":
