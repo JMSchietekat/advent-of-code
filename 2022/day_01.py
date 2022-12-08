@@ -4,39 +4,33 @@ ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 SAMPLE_INPUT_PATH = ROOT_DIR + '/day_01_input_sample.txt'
 INPUT_PATH = ROOT_DIR + "/day_01_input.txt"
 
-def p1(input_path):
+def p1(path):
     A = []
-    cnt = 1
+    s = 0
 
-    with open(input_path) as file:
-        for line in file:
-            if line == '\n':
-                cnt += 1
+    with open(path) as f:
+        for l in f:
+            if l != '\n':
+                s += int(l)
             else:
-                t = int(line.replace('\n',''))
-                if cnt > len(A):
-                     A.append(t)
-                else:
-                    A[cnt-1] += t
+                A.append(s)
+                s = 0
 
     A.sort(reverse=True)
 
     return A[0]
 
-def p2(input_path):
+def p2(path):
     A = []
-    cnt = 1
+    s = 0
 
-    with open(input_path) as file:
-        for line in file:
-            if line == '\n':
-                cnt += 1
+    with open(path) as f:
+        for l in f:
+            if l != '\n':
+                s += int(l)
             else:
-                t = int(line.replace('\n',''))
-                if cnt > len(A):
-                     A.append(t)
-                else:
-                    A[cnt-1] += t
+                A.append(s)
+                s = 0
 
     A.sort(reverse=True)
 
